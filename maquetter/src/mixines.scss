@@ -12,3 +12,13 @@
   line-height: 29px;
   font-family: $font;
 }
+
+@mixin redButton() {
+  width: 210px;
+  height: 40px;
+
+  color: #fefefe;
+
+  background: #ef5b4c;
+  border-radius: 8px;
+}
