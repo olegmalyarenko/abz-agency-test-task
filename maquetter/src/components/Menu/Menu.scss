@@ -1,3 +1,16 @@
-.conteiner {
-  max-width: 1170px;
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+}
+.navigation {
+  display: flex;
+}
+li {
+  padding: 0 30px;
+
+  font-family: "Open Sans", sans-serif;
 }

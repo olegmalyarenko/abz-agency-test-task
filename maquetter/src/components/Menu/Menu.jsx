@@ -30,7 +30,7 @@ export default class Menu extends Component {
         if(this.state.width < 800) {
             return (
                 <div>
-                    <div className="conteiner">
+                    <div className="conteiner menu">
                      <Logo/>
                      <MobileIcon />
                     </div>
@@ -42,9 +42,9 @@ export default class Menu extends Component {
     
     return (
         <div>
-            <div className="conteiner">
+            <div className="conteiner menu">
              <Logo/>
-             <ul>
+             <ul className="navigation">
                 <li>About me</li>
                 <li>Relationships</li>
                 <li>Requirements</li>
