@@ -3,6 +3,7 @@ import './Acquainted.scss';
 import { ReactComponent as Img } from './man-laptop-v1.svg';
 
 const Acquainted = () => {
+    
  return (
      <div className="conteiner acquained">
          <h2>Let's get acquainted</h2>
