@@ -22,3 +22,11 @@
   background: #ef5b4c;
   border-radius: 8px;
 }
+
+@mixin flatButton() {
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+}

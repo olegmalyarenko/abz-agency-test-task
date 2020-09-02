@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import Menu from '../Menu';
 import TestAssignment from '../TestAssignment';
+import Acquainted from '../Acquainted';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
            
         <Menu />
         <TestAssignment />
+        <Acquainted />
     </div>
   );
 }
