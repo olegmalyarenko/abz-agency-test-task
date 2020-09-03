@@ -5,7 +5,6 @@ import getData from '../../services';
  export default class Users extends Component {
 
     state = {
-        page: 1,
         people: [],
         peopleCount: 6
     }
@@ -16,7 +15,7 @@ import getData from '../../services';
         if (data) {
           this.setState((prevState) => ({
             ...prevState,
-            people: data.users.sort((a, b) => a - b)
+            people: data.users.sort((a, b, registration_timestamp) => b.registration_timestamp - a.registration_timestamp)
           }));
         }
       });
@@ -24,7 +23,25 @@ import getData from '../../services';
 
     render(){
       const { people } = this.state;
-    //console.log('Users', people);
+      console.log('Users', people);
+      
+      const Loading = () => {
+        return (
+            <p>Data is not ready</p>
+        )
+      };
+      const peopleList = () => {
+        return people.map((user) => {
+          const { id } = user;
+          return (
+            <User key={id} user={user} />
+          )
+
+        })
+      };
+    
+      
+    const userData = people ? peopleList() : Loading();
     
     return(
      <div>
@@ -32,8 +49,8 @@ import getData from '../../services';
          <h2>Our cheerful users</h2>
          <p>Attention! Sorting users by registration date</p>
        </div>  
-     <div className="user-list">
-       <User people={people[0]}/>
+     <div className="users-list">
+        { userData }
      </div>
      <button>Show more</button>
      </div>

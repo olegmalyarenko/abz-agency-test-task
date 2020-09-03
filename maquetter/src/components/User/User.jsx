@@ -4,7 +4,7 @@ import './index.js';
 
 export default class User extends Component {
     render() {
-       
+        console.log('Props', this.props);
         const falseData = () => {
             return (
                 <p>Data is not ready</p>
@@ -12,11 +12,11 @@ export default class User extends Component {
         }
         
         const trueData = () => {
-            const { photo, name, position, email,phone } = this.props.people;
+            const { photo, name, position, email,phone } = this.props.user;
             console.log('User', email);
             return(
             
-                <div>
+                <div >
                     <img src={photo} alt="user-photo"/>
                     <h2> {name} </h2>
                     <p>{position}</p>
@@ -28,18 +28,12 @@ export default class User extends Component {
 
         }
         
-        const userData = this.props.people ? trueData() : falseData();    
+        const userData = this.props.user ? trueData() : falseData();
 
-            return(
-            
-                <div>
-                    { userData }
-      
-                </div>
-              )
-
-        
-        
-        
+        return(
+          <div col-md-4 col-lg-4  col-sx-12>
+            { userData }
+          </div>
+        )    
     };
 };
