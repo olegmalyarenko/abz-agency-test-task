@@ -4,7 +4,9 @@ import './index.js';
 
 export default class User extends Component {
     render() {
-        console.log('Юзер ван', this.props.people[0]);
+        
+        const { people } = this.props;
+        console.log('Юзер ван', people);
         
         return(
             

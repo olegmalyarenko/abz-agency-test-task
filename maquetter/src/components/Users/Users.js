@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './Users.scss';
 import User from '../User';
-import {
-    getData
-  } from '../../services';
+import getData from '../../services';
  export default class Users extends Component {
 
     state = {
@@ -11,41 +9,20 @@ import {
         people: []
     }
 
-    componentDidMount () {
-        this.peopleData(); 
-        
+    componentDidMount() {
+      getData().then((data) => {
+        if (data) {
+          this.setState((prevState) => ({
+            ...prevState,
+            people: data.users.sort((a, b) => a - b)
+          }));
+        }
+      });
     }
-    
-    peopleData = async () => {
-        fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=46') 
-       .then(function(response) { 
-          return response.json(); 
-        }) 
-        .then((data)  => { 
-            if(data) { 
-                let curData = data.users.sort(function(a, b) {
-                    return a - b;
-                  });
-                  
-                console.log(curData);
-                
-                this.setState(({ people }) => { 
-                    const newArr = [...curData]
-        
-                    return {
-                        people: newArr
-                    }
-        
-                })
 
-                
-                } else {
-                    console.log('неудачно');  
-                }
-            })
-    } 
     render(){
-    console.log('рендер стейт', this.state.people)
+      const { people } = this.state
+    console.log('рендер стейт', people[0])
     
     return(
      <div>
@@ -54,7 +31,7 @@ import {
          <p>Attention! Sorting users by registration date</p>
        </div>  
      <div className="user-list">
-       <User people={this.state.people}/>
+       <User people={people[0]}/>
      </div>
      <button>Show more</button>
      </div>
