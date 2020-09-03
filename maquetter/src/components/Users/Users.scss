@@ -31,9 +31,16 @@
 .button-row {
   display: flex;
   justify-content: center;
-  button {
-    margin: 64px 0 160px;
+}
+
+.show-button {
+  margin: 64px 0 160px;
 
 @include redButton();
-  }
+}
+
+.disabled-button {
+  margin: 64px 0 160px;
+
+@include disabledButton();
 }

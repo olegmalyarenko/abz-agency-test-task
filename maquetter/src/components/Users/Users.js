@@ -6,10 +6,12 @@ import getData from '../../services';
 
     state = {
         people: [],
-        peopleCount: 6
+        peopleCount: 6,
+        button: true,
     }
+    
 
-    componentDidMount() {
+    updateState =  () => {
       getData(this.state.peopleCount).then((data) => {
         console.log("Data", data);
         if (data) {
@@ -19,10 +21,41 @@ import getData from '../../services';
           }));
         }
       });
+
+    }
+    componentDidMount() {
+      this.updateState();
+     
+    }
+
+    componentDidUpdate (prevState){
+      if (this.state.peopleCount !== prevState.peopleCount){
+        this.updateState();
+      }
+    }
+
+    addUsers = () => {
+      if(this.state.peopleCount === 46 ) {
+        this.setState({
+          button: false,
+        })
+        console.log('Button', this.state.button)
+      }
+      if(this.state.peopleCount === 42) {
+        this.setState( (state) => ({
+          peopleCount: state.peopleCount + 4
+        }))
+        console.log('PeopleCount', this.state.peopleCount)
+      } else {
+      this.setState( (state) => ({
+        peopleCount: state.peopleCount + 6,
+      }))
+      console.log('PeopleCount', this.state.peopleCount)
+    }
     }
 
     render(){
-      const { people } = this.state;
+      const { people, button } = this.state;
       console.log('Users', people);
       
       const Loading = () => {
@@ -39,9 +72,24 @@ import getData from '../../services';
 
         })
       };
-    
+
+      const userData = people ? peopleList() : Loading();
+
+      const showButton = () => {
+        return(
+          <button onClick={this.addUsers} className="show-button">Show more</button>
+        )
+      };
       
-    const userData = people ? peopleList() : Loading();
+      const disabledButton = () => {
+        return(
+          <button className="disabled-button">Disabled</button>
+        )
+      };
+
+      const buttonToggle = button ? showButton() : disabledButton();
+      
+    
     
     return(
      <div className="users-block ">
@@ -54,7 +102,7 @@ import getData from '../../services';
             { userData }
           </div>
           <div className="button-row">
-            <button>Show more</button>
+            { buttonToggle } 
           </div>  
         </div>
      </div>
