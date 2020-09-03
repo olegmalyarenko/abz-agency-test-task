@@ -6,12 +6,13 @@ import getData from '../../services';
 
     state = {
         page: 1,
-        people: []
+        people: [],
+        peopleCount: 6
     }
 
     componentDidMount() {
-      getData().then((data) => {
-        //console.log("Data", data);
+      getData(this.state.peopleCount).then((data) => {
+        console.log("Data", data);
         if (data) {
           this.setState((prevState) => ({
             ...prevState,
