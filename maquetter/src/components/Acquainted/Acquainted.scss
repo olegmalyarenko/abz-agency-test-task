@@ -3,7 +3,6 @@
 
 .acquained {
   width: 100%;
-  height: 720px;
 
   background: #ffffff;
   h2 {
@@ -37,10 +36,11 @@
 @include paragraph();
   }
   button {
+    margin-bottom: 158px;
+
     font-size: 12px;
     font-family: $font;
     color: #ef5b4c;
-
 @include flatButton();
   }
 }

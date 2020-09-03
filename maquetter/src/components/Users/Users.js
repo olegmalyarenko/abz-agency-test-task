@@ -44,15 +44,19 @@ import getData from '../../services';
     const userData = people ? peopleList() : Loading();
     
     return(
-     <div>
-       <div className="users-titles">  
-         <h2>Our cheerful users</h2>
-         <p>Attention! Sorting users by registration date</p>
-       </div>  
-     <div className="users-list">
-        { userData }
-     </div>
-     <button>Show more</button>
+     <div className="users-block ">
+       <div className="conteiner">
+         <div className="users-titles">  
+           <h2>Our cheerful users</h2>
+           <p>Attention! Sorting users by registration date</p>
+          </div>  
+          <div className="users-list">
+            { userData }
+          </div>
+          <div className="button-row">
+            <button>Show more</button>
+          </div>  
+        </div>
      </div>
     )
     }
