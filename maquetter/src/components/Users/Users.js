@@ -11,6 +11,7 @@ import getData from '../../services';
 
     componentDidMount() {
       getData().then((data) => {
+        //console.log("Data", data);
         if (data) {
           this.setState((prevState) => ({
             ...prevState,
@@ -21,8 +22,8 @@ import getData from '../../services';
     }
 
     render(){
-      const { people } = this.state
-    console.log('рендер стейт', people[0])
+      const { people } = this.state;
+    //console.log('Users', people);
     
     return(
      <div>
