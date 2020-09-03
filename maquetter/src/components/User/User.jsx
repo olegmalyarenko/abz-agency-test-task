@@ -1,5 +1,6 @@
 import React, { Component } from 'react'; 
 import './index.js';
+import './User.scss';
 
 
 export default class User extends Component {
@@ -16,8 +17,8 @@ export default class User extends Component {
             console.log('User', email);
             return(
             
-                <div >
-                    <img src={photo} alt="user-photo"/>
+                <div className="user-card" >
+                    <img className="user-photo" src={photo} alt="user-photo"/>
                     <h2> {name} </h2>
                     <p>{position}</p>
                     <p>{email}</p>
@@ -31,7 +32,7 @@ export default class User extends Component {
         const userData = this.props.user ? trueData() : falseData();
 
         return(
-          <div col-md-4 col-lg-4  col-sx-12>
+          <div className="user">
             { userData }
           </div>
         )    

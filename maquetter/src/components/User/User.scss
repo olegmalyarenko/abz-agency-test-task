@@ -1,0 +1,35 @@
+@import "../../mixines.scss";
+@import "../../variables.scss";
+
+.user {
+  width: 30%;
+  margin: 0 1%;
+
+  text-align: center;
+}
+
+.user-photo {
+  width: 70px;
+  height: 70px;
+
+  background-color: #3a5384;
+  border: 2px solid #ffffff;
+  border-radius: 35px;
+}
+
+
+
+.user-card {
+  h2 {
+    margin: 22px 0;
+
+    color: #212529;
+
+@include  title();
+  }
+  p {
+    color: #4c4b4b;
+
+@include paragraph();
+  }
+}

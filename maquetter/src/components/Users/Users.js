@@ -15,7 +15,7 @@ import getData from '../../services';
         if (data) {
           this.setState((prevState) => ({
             ...prevState,
-            people: data.users.sort((a, b, registration_timestamp) => b.registration_timestamp - a.registration_timestamp)
+            people: data.users.sort((a, b) => b.registration_timestamp - a.registration_timestamp)
           }));
         }
       });
