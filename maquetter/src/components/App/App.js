@@ -4,6 +4,7 @@ import Menu from '../Menu';
 import TestAssignment from '../TestAssignment';
 import Acquainted from '../Acquainted';
 import Users from '../Users';
+import Register from '../Register';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
         <TestAssignment />
         <Acquainted />
         <Users />
+        <Register />
     </div>
   );
 }

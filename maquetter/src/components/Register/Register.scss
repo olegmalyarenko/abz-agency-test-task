@@ -1,0 +1,42 @@
+@import "../../mixines.scss";
+@import "../../variables.scss";
+
+.register-block {
+  h2 {
+    padding-top: 160px;
+
+    font-size: 50px;
+    font-family: $font;
+    text-align: center;
+    color: #212529;
+  }
+  p {
+    max-width: 446px;
+    margin: 30px auto 34px;
+
+    text-align: center;
+
+@include paragraph();
+  }
+}
+.form-control {
+  width: 468px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.radio-row {
+  margin-left: -300px;
+}
+.loader {
+  max-width: 468px;
+}
+.submit-button {
+  margin: 40px 0 163px;
+
+@include redButton();
+}
