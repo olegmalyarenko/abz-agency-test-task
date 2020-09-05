@@ -16,36 +16,35 @@ export default class Register extends Component {
   }
 
   validate = () => {
-
-
-  }
-
-  handleSubmit = event => {
-    event.preventDefault();
-
     if(this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
       console.log('eeee', this.state.email);
+      this.setState({emailValid: false});
       //alert('email')
+    } else {
+      this.setState({emailValid: true});
     }
 
     if(this.state.name.match(/^[a-z ,.'-]+$/i)) {
       console.log('Name Valid', this.state.name);
+      this.setState({nameValid: false});
       //alert('Name Valid')
+    } else {
+      this.setState({nameValid: true});
     }
-
+   
     if(this.state.phone.match(/^\+?3?8?(0[5-9][0-9]\d{7})$/i)) {
       console.log('Phone Valid', this.state.phone);
       alert('Phone Valid');
-
-
+      this.setState({phoneValid: false});
     } else {
-      alert('Phone not Valid');
-      console.log('Phone not Valid!!', this.state.phone);
+      this.setState({phoneValid: true});
     }
-    
-    //console.log('name', this.state.name);
-    //console.log('phone', this.state.phone);
-    //console.log('email', this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i));  
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.validate(); 
+  
   }
 
   handleUserInput = (e) => {
@@ -53,6 +52,18 @@ export default class Register extends Component {
   }
 
     render(){
+     const { emailValid, phoneValid, nameValid } = this.state;
+     const nameFormText = nameValid ? <span className="error-text">Error</span> : null; 
+     const emailFormText = emailValid ? <span className="error-text">Error</span> : null; 
+     const phoneFormText = phoneValid ? <span className="error-text">Error</span> : <span>Enter phone number in the enter format.</span>;
+
+     const nameFormClass = nameValid ? 'error-form' : null;
+     const emailFormClass = emailValid ? 'error-form' : null;
+     const phoneFormClass = phoneValid ? 'error-form' : null;
+
+
+     
+
         return(
             <div className="container register-block">
                 <h2>Register to get a work</h2>
@@ -67,9 +78,10 @@ export default class Register extends Component {
                     name="name"
                     onChange={this.handleUserInput}
                     required
+                    className={nameFormClass}
                     />
                     <Form.Text className="text-muted">
-                      Absessive text.
+                      { nameFormText }
                     </Form.Text>
                   </Form.Group>
 
@@ -82,9 +94,10 @@ export default class Register extends Component {
                       name="email"
                       onChange={this.handleUserInput}
                       required
+                      className={emailFormClass}
                       />
                     <Form.Text className="text-muted">
-                      Absessive text.
+                     { emailFormText }
                     </Form.Text>
                   </Form.Group>
 
@@ -96,9 +109,10 @@ export default class Register extends Component {
                     onChange={this.handleUserInput}
                     required
                     name="phone"
+                    className={phoneFormClass}
                     />
                     <Form.Text className="text-muted">
-                      Enter phone number in the enter format.
+                    { phoneFormText } 
                     </Form.Text>
                   </Form.Group>
               

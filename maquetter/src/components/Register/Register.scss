@@ -40,3 +40,12 @@
 
 @include redButton();
 }
+.error-form {
+  border: 1px solid #db3445;
+}
+
+.error-text {
+  font-size: 12px;
+  font-family: $font;
+  color: #f44336;
+}
