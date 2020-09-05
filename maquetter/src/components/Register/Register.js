@@ -9,6 +9,8 @@ export default class Register extends Component {
     email: '',
     phone: '',
     name: '',
+    radio: '',
+    image: [],
     emailValid: false,
     phoneValid: false,
     formValid: false
@@ -47,8 +49,23 @@ export default class Register extends Component {
   
   }
 
-  handleUserInput = (e) => {
+  handleUserInput = e => {
     this.setState({[e.target.name]: e.target.value});
+    console.log('Radio',this.state.radio)
+  }
+
+  handleFileInput = e => {
+    let file = e.target.files;
+
+    let reader = new FileReader();
+    reader.readAsDataURL(file[0]);
+    reader.onload= e => {
+      
+      this.setState({image: e.target.result});
+      console.warn('img data', this.state.image);
+    }
+
+
   }
 
     render(){
@@ -117,43 +134,64 @@ export default class Register extends Component {
                   </Form.Group>
               
                   
-                  <Form.Group className="radio-row" >
+                  <Form.Group className="radio-row"  >
                       <Form.Label>
                        Select your position
                      </Form.Label>
       
                      <Form.Check
+                      custom
+                      required
                       type="radio"
                       label="Frontend developer"
-                      name="formHorizontalRadios"
+                      value="Frontend developer"
+                      name="radio"
                       id="formHorizontalRadios1"
+                      onClick={this.handleUserInput}
                      />
                      <Form.Check
+                      custom
                       type="radio"
                       label="Beckend developer"
-                      name="formHorizontalRadios"
+                      value="Beckend developer"
+                      name="radio"
                       id="formHorizontalRadios2"
+                      onClick={this.handleUserInput}
                      />
                      <Form.Check
+                      custom
                       type="radio"
                       label="Designer"
-                      name="formHorizontalRadios"
+                      value="Designer"
+                      name="radio"
                       id="formHorizontalRadios3"
+                      onClick={this.handleUserInput}
                       />
 
                       <Form.Check
+                      custom
                       type="radio"
                       label="QA"
-                      name="formHorizontalRadios"
-                      id="formHorizontalRadios3"
+                      value="QA"
+                      name="radio"
+                      id="custom-radio"
+                      onClick={this.handleUserInput}
                       />
+
+                       
+
+
+                        
+                       
                    </Form.Group>
 
                    <Form.File 
                     className ="loader"
                     id="custom-file"
+                    name = "image"
                     label="Upload your photo"
-                    custom
+                    custom 
+                    onChange={this.handleFileInput}
                     />
                    
 
