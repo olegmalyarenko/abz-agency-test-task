@@ -5,7 +5,7 @@ import './User.scss';
 
 export default class User extends Component {
     render() {
-        console.log('Props', this.props);
+        //console.log('Props', this.props);
         const falseData = () => {
             return (
                 <p>Data is not ready</p>
@@ -14,7 +14,7 @@ export default class User extends Component {
         
         const trueData = () => {
             const { photo, name, position, email,phone } = this.props.user;
-            console.log('User', email);
+            //console.log('User', email);
             return(
             
                 <div className="user-card" >

@@ -13,7 +13,7 @@ import getData from '../../services';
 
     updateState =  () => {
       getData(this.state.peopleCount).then((data) => {
-        console.log("Data", data);
+        //console.log("Data", data);
         if (data) {
           this.setState((prevState) => ({
             ...prevState,
@@ -39,24 +39,24 @@ import getData from '../../services';
         this.setState({
           button: false,
         })
-        console.log('Button', this.state.button)
+        //console.log('Button', this.state.button)
       }
       if(this.state.peopleCount === 42) {
         this.setState( (state) => ({
           peopleCount: state.peopleCount + 4
         }))
-        console.log('PeopleCount', this.state.peopleCount)
+        //console.log('PeopleCount', this.state.peopleCount)
       } else {
       this.setState( (state) => ({
         peopleCount: state.peopleCount + 6,
       }))
-      console.log('PeopleCount', this.state.peopleCount)
+      //console.log('PeopleCount', this.state.peopleCount)
     }
     }
 
     render(){
       const { people, button } = this.state;
-      console.log('Users', people);
+      //console.log('Users', people);
       
       const Loading = () => {
         return (
