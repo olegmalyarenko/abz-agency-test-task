@@ -1,62 +1,7 @@
 import React, { Component } from 'react';
 import './Users.scss';
 import User from '../User';
-import getData from '../../services';
- export default class Users extends Component {
-
-    state = {
-        people: [],
-        peopleCount: 6,
-        button: true,
-    }
-    
-
-    updateState =  () => {
-      getData(this.state.peopleCount).then((data) => {
-        //console.log("Data", data);
-        if (data) {
-          this.setState((prevState) => ({
-            ...prevState,
-            people: data.users.sort((a, b) => b.registration_timestamp - a.registration_timestamp)
-          }));
-        }
-      });
-
-    }
-    componentDidMount() {
-      this.updateState();
-     
-    }
-
-    componentDidUpdate (prevState){
-      if (this.state.peopleCount !== prevState.peopleCount){
-        this.updateState();
-      }
-    }
-
-    addUsers = () => {
-      if(this.state.peopleCount === 46 ) {
-        this.setState({
-          button: false,
-        })
-        //console.log('Button', this.state.button)
-      }
-      if(this.state.peopleCount === 42) {
-        this.setState( (state) => ({
-          peopleCount: state.peopleCount + 4
-        }))
-        //console.log('PeopleCount', this.state.peopleCount)
-      } else {
-      this.setState( (state) => ({
-        peopleCount: state.peopleCount + 6,
-      }))
-      //console.log('PeopleCount', this.state.peopleCount)
-    }
-    }
-
-    render(){
-      const { people, button } = this.state;
-      //console.log('Users', people);
+const Users = ({ people, button, addUsers }) => {
       
       const Loading = () => {
         return (
@@ -77,7 +22,7 @@ import getData from '../../services';
 
       const showButton = () => {
         return(
-          <button onClick={this.addUsers} className="show-button">Show more</button>
+          <button onClick={addUsers} className="show-button">Show more</button>
         )
       };
       
@@ -107,5 +52,6 @@ import getData from '../../services';
         </div>
      </div>
     )
-    }
+    
  };
+ export default Users;

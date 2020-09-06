@@ -90,7 +90,7 @@ export default class Register extends Component {
      const phoneFormClass = phoneError ? 'error-form' : null;
      const imageFormClass = imageError ? 'error-form loader' : 'loader';
 
-     const loadImg = this.state.image ? this.state.image : null;
+     //const loadImg = this.state.image ? this.state.image : null;
 
 
      
@@ -211,7 +211,7 @@ export default class Register extends Component {
                     { imageFormText } 
                     </Form.Text>  
                    
-                  <img src={loadImg } />
+                  
                   <Button 
                   className="submit-button"
                   variant="primary" 
