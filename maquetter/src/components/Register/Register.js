@@ -10,20 +10,21 @@ export default class Register extends Component {
     phone: '',
     name: '',
     radio: '',
-    image: [],
-    emailValid: false,
-    phoneValid: false,
-    formValid: false
+    image: null,
+    emailError: false,
+    phoneError: false,
+    formError: false,
+    imageError: false,
 
   }
 
   validate = () => {
     if(this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
       console.log('eeee', this.state.email);
-      this.setState({emailValid: false});
+      this.setState({emailError: false});
       //alert('email')
     } else {
-      this.setState({emailValid: true});
+      this.setState({emailError: true});
     }
 
     if(this.state.name.match(/^[a-z ,.'-]+$/i)) {
@@ -31,15 +32,15 @@ export default class Register extends Component {
       this.setState({nameValid: false});
       //alert('Name Valid')
     } else {
-      this.setState({nameValid: true});
+      this.setState({nameError: true});
     }
    
     if(this.state.phone.match(/^\+?3?8?(0[5-9][0-9]\d{7})$/i)) {
       console.log('Phone Valid', this.state.phone);
       alert('Phone Valid');
-      this.setState({phoneValid: false});
+      this.setState({phoneError: false});
     } else {
-      this.setState({phoneValid: true});
+      this.setState({phoneError: true});
     }
   }
 
@@ -56,27 +57,40 @@ export default class Register extends Component {
 
   handleFileInput = e => {
     let file = e.target.files;
+    console.warn('img data', file[0]);
+    if (!file[0].name.match(/\.(jpg|jpeg|png|gif)$/)) { 
+      alert('Error');
+      this.setState({imageError: true});
+      return;
 
+    }
     let reader = new FileReader();
     reader.readAsDataURL(file[0]);
+     
     reader.onload= e => {
-      
-      this.setState({image: e.target.result});
-      console.warn('img data', this.state.image);
+        this.setState({
+          image: e.target.result,
+          imageError: false
+        });
+        console.warn('img data', this.state.image); 
     }
 
 
   }
 
     render(){
-     const { emailValid, phoneValid, nameValid } = this.state;
-     const nameFormText = nameValid ? <span className="error-text">Error</span> : null; 
-     const emailFormText = emailValid ? <span className="error-text">Error</span> : null; 
-     const phoneFormText = phoneValid ? <span className="error-text">Error</span> : <span>Enter phone number in the enter format.</span>;
+     const { emailError, phoneError, nameError, imageError } = this.state;
+     const nameFormText = nameError ? <span className="error-text">Error</span> : null; 
+     const emailFormText = emailError ? <span className="error-text">Error</span> : null; 
+     const phoneFormText = phoneError ? <span className="error-text">Error</span> : <span>Enter phone number in the enter format.</span>;
+     const imageFormText = imageError ? <span className="error-text loader-text">Error</span> : null;
 
-     const nameFormClass = nameValid ? 'error-form' : null;
-     const emailFormClass = emailValid ? 'error-form' : null;
-     const phoneFormClass = phoneValid ? 'error-form' : null;
+     const nameFormClass = nameError ? 'error-form' : null;
+     const emailFormClass = emailError ? 'error-form' : null;
+     const phoneFormClass = phoneError ? 'error-form' : null;
+     const imageFormClass = imageError ? 'error-form loader' : 'loader';
+
+     const loadImg = this.state.image ? this.state.image : null;
 
 
      
@@ -186,15 +200,18 @@ export default class Register extends Component {
                    </Form.Group>
 
                    <Form.File 
-                    className ="loader"
+                    className ={ imageFormClass }
                     id="custom-file"
                     name = "image"
                     label="Upload your photo"
                     custom 
                     onChange={this.handleFileInput}
                     />
+                    <Form.Text className="text-muted">
+                    { imageFormText } 
+                    </Form.Text>  
                    
-
+                  <img src={loadImg } />
                   <Button 
                   className="submit-button"
                   variant="primary" 
