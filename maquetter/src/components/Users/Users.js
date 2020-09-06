@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Users.scss';
 import User from '../User';
 const Users = ({ people, button, addUsers }) => {

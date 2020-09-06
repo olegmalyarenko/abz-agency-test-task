@@ -1,11 +1,10 @@
-import React, { Component } from 'react'; 
+import React from 'react'; 
 import './index.js';
 import './User.scss';
+import { ReactComponent as DefaultPhoto } from './photo-cover.svg';
 
-
-export default class User extends Component {
-    render() {
-        //console.log('Props', this.props);
+const User = ({ user }) =>  {
+         //console.log('Props', this.props);
         const falseData = () => {
             return (
                 <p>Data is not ready</p>
@@ -13,12 +12,13 @@ export default class User extends Component {
         }
         
         const trueData = () => {
-            const { photo, name, position, email,phone } = this.props.user;
+            const { photo, name, position, email,phone } = user;
             //console.log('User', email);
+            const personPhoto = photo ? photo : <DefaultPhoto/>;
             return(
             
                 <div className="user-card" >
-                    <img className="user-photo" src={photo} alt="user-photo"/>
+                    <img className="user-photo" src={personPhoto} alt='user' />
                     <h2> {name} </h2>
                     <p>{position}</p>
                     <p>{email}</p>
@@ -29,7 +29,7 @@ export default class User extends Component {
 
         }
         
-        const userData = this.props.user ? trueData() : falseData();
+        const userData = user ? trueData() : falseData();
 
         return(
           <div className="user">
@@ -37,4 +37,5 @@ export default class User extends Component {
           </div>
         )    
     };
-};
+
+ export default User;   

@@ -59,16 +59,42 @@ addUsers = () => {
   //console.log('PeopleCount', this.state.peopleCount)
   }
 }
+
+updatePeopleList = (email, name, phone, radio, image) => {
+ 
+ const newUser = [{
+ email: email, 
+ id: Math.random()*(100 - 60) + 60, 
+ name: name, 
+ phone: phone, 
+ photo: image, 
+ position: radio
+}];
+
+this.setState((people) => ({
+  people: [newUser, ...people]
+}));
+
+console.log('Новый юзер', this.state.people);  
+}
   render() {
     const { people , peopleCount, button } = this.state;
+    console.log('Users users users', this.state.people);
   return (
     <div className="App">
            
         <Menu />
         <TestAssignment />
         <Acquainted />
-        <Users  people={people} peopleCount={peopleCount} button={button} addUsers={this.addUsers} />
-        <Register />
+        <Users  
+        people={people} 
+        peopleCount={peopleCount} 
+        button={button} 
+        addUsers={this.addUsers}  
+        />
+        <Register
+        updatePeopleList={this.updatePeopleList}
+        />
     </div>
   );
   }

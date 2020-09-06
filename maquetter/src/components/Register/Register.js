@@ -13,7 +13,7 @@ export default class Register extends Component {
     image: null,
     emailError: false,
     phoneError: false,
-    formError: false,
+    nameError: false,
     imageError: false,
 
   }
@@ -47,12 +47,15 @@ export default class Register extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.validate(); 
-  
+   const { nameError, phoneError, emailError, imageError, email, name, phone, position, image } = this.state;
+   if(nameError === false &&  phoneError === false && emailError === false && imageError === false)
+    this.props.updatePeopleList(email, name, phone, position, image);
+    
   }
 
   handleUserInput = e => {
     this.setState({[e.target.name]: e.target.value});
-    console.log('Radio',this.state.radio)
+    //console.log('Radio',this.state.radio)
   }
 
   handleFileInput = e => {
