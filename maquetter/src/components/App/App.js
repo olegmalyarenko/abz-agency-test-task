@@ -61,22 +61,34 @@ addUsers = () => {
 }
 
 updatePeopleList = (email, name, phone, radio, image) => {
- 
- const newUser = [{
+  const newUser = {
  email: email, 
- id: Math.random()*(100 - 60) + 60, 
+ id: Math.round(Math.random()*(100 - 60) + 60), 
  name: name, 
  phone: phone, 
  photo: image, 
- position: radio
-}];
+ position: radio,
+ position_id: 1,
+ registration_timestamp: Date.now()
+};
+console.log ('newUser',newUser);
+if(this.state.peopleCount > 6) {
+  
+  this.setState(()=> ({
+    peopleCount: 6,
+  }));
+}
 
-this.setState((people) => ({
-  people: [newUser, ...people]
-}));
-
+this.setState((prevState) => ({
+   
+    people: prevState.people.unshift(newUser),
+    ...prevState,
+    
+    }));
+debugger;
 console.log('Новый юзер', this.state.people);  
 }
+
   render() {
     const { people , peopleCount, button } = this.state;
     console.log('Users users users', this.state.people);

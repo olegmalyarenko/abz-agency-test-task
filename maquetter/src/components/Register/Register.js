@@ -36,8 +36,7 @@ export default class Register extends Component {
     }
    
     if(this.state.phone.match(/^\+?3?8?(0[5-9][0-9]\d{7})$/i)) {
-      console.log('Phone Valid', this.state.phone);
-      alert('Phone Valid');
+      //console.log('Phone Valid', this.state.phone);
       this.setState({phoneError: false});
     } else {
       this.setState({phoneError: true});
@@ -47,9 +46,12 @@ export default class Register extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.validate(); 
-   const { nameError, phoneError, emailError, imageError, email, name, phone, position, image } = this.state;
-   if(nameError === false &&  phoneError === false && emailError === false && imageError === false)
-    this.props.updatePeopleList(email, name, phone, position, image);
+   const { nameError, phoneError, emailError, imageError, email, name, phone, radio, image } = this.state;
+  
+   if(nameError === false &&  phoneError === false && emailError === false && imageError === false) {
+    this.props.updatePeopleList(email, name, phone, radio, image);
+    debugger;
+   } 
     
   }
 
