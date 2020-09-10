@@ -4,12 +4,12 @@
 
 .side-menu {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 200px;
   z-index: 200;
 
   width: #ffffff;
   height: 100%;
+  margin: 0 auto;
 
   background: white;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);

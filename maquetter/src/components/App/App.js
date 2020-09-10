@@ -6,6 +6,7 @@ import Acquainted from '../Acquainted';
 import Users from '../Users';
 import Register from '../Register';
 import getData from '../../services';
+import ModalWindow from '../ModalWindow';
 
 
 export default class App extends Component {
@@ -96,6 +97,7 @@ console.log('Новый юзер', this.state.people);
     <div className="App">
            
         <Menu />
+        <ModalWindow />
         <TestAssignment />
         <Acquainted />
         <Users  
