@@ -91,7 +91,7 @@ console.log('Новый юзер', this.state.people);
 
   render() {
     const { people , peopleCount, button } = this.state;
-    console.log('Users users users', this.state.people);
+    //console.log('Users users users', this.state.people);
   return (
     <div className="App">
            
