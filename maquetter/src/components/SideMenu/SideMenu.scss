@@ -1,3 +1,7 @@
+@import "../../mixines.scss";
+@import "../../variables.scss";
+
+
 .side-menu {
   position: fixed;
   top: 0;
@@ -15,4 +19,33 @@
 }
 .open {
   transform: translateX(0);
+}
+
+.side-menu__item {
+  margin-left: 0;
+
+  color: #000000;
+
+  cursor: pointer;
+
+@include paragraph();
+}
+
+.side-menu__nav {
+  padding: 0;
+  &::before {
+    content: "";
+
+    display: block;
+    width: 100%;
+    width: 290px;
+    height: 1px;
+    margin-bottom: 16px;
+
+    background-color: #e1e1e1;
+  }
+}
+
+.side-menu svg {
+  margin: 11px 15px 9px;
 }
