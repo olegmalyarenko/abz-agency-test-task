@@ -49,8 +49,8 @@ export default class Register extends Component {
    const { nameError, phoneError, emailError, imageError, email, name, phone, radio, image } = this.state;
   
    if(nameError === false &&  phoneError === false && emailError === false && imageError === false) {
+    this.props.modalToggleHandler(); 
     this.props.updatePeopleList(email, name, phone, radio, image);
-    debugger;
    } 
     
   }
@@ -120,7 +120,7 @@ export default class Register extends Component {
                       { nameFormText }
                     </Form.Text>
                   </Form.Group>
-
+                  {this.props.modalWindow}
                   <Form.Group controlId="formEmail">
                     <Form.Label>Email</Form.Label>
                     <Form.Control 

@@ -14,7 +14,8 @@ export default class App extends Component {
   state = {
     people: [],
     peopleCount: 6,
-    button: true
+    button: true,
+    modal: false
 }
 
 
@@ -86,18 +87,34 @@ this.setState((prevState) => ({
     ...prevState,
     
     }));
-debugger;
+
 console.log('Новый юзер', this.state.people);  
 }
 
+modalToggleHandler = () => {
+  this.setState((prevState) => {
+      return {
+          modal: !prevState.mobileMenu,
+      }
+  })
+}
+
+closeModalHandler = () => {
+  debugger;
+  this.setState(() => ({
+      modal: false,
+  }))
+
+}
+
   render() {
-    const { people , peopleCount, button } = this.state;
+    const { people , peopleCount, button, modal } = this.state;
     //console.log('Users users users', this.state.people);
+    const modalWindow = modal ? <ModalWindow click={this.closeModalHandler} /> : null;
   return (
     <div className="App">
            
         <Menu />
-        <ModalWindow />
         <TestAssignment />
         <Acquainted />
         <Users  
@@ -108,7 +125,10 @@ console.log('Новый юзер', this.state.people);
         />
         <Register
         updatePeopleList={this.updatePeopleList}
+        modalToggleHandler={this.modalToggleHandler}
+        modalWindow= {modalWindow}
         />
+        
     </div>
   );
   }

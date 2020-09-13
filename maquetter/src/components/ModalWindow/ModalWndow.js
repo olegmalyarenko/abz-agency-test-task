@@ -4,11 +4,11 @@ import Modal from 'react-bootstrap/Modal';
 import './ModalWindow.scss';
 
 
-const ModalWindow = () => {
+const ModalWindow = (props) => {
     return (
         <div className="modal-window">
             <Modal.Dialog>
-              <Modal.Header closeButton>
+              <Modal.Header closeButton onClick={props.click}>
                 <Modal.Title>Congratulation</Modal.Title>
               </Modal.Header>
 
@@ -17,7 +17,7 @@ const ModalWindow = () => {
               </Modal.Body>
 
               <Modal.Footer>
-               <button className="modal-button">Great</button>
+               <button className="modal-button" onClick={props.click}>Great</button>
                
               </Modal.Footer>
             </Modal.Dialog>
