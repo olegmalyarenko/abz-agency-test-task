@@ -1,9 +1,9 @@
 import React from 'react';
 import './SideMenu.scss';
 
-const SideMenu = () => {
+const SideMenu = (props) => {
     return ( 
-      <nav className="side-menu">
+      <nav className="side-menu" onClick={props.closemenuHandler}>
           <ul>
            <li><a href="/">Привет</a></li>
            <li><a href="/">Олег</a></li>

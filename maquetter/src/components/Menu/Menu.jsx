@@ -7,7 +7,25 @@ import BackDrop from '../BackDrop/BackDrop';
 export default class Menu extends Component {
     state = {
         width: 0,
-        active: null
+        active: null,
+        mobileMenu: false
+    }
+
+    menuToggleHandler = () => {
+        this.setState((prevState) => {
+            return {
+                mobileMenu: !prevState.mobileMenu,
+            }
+        })
+
+    }
+
+    closemenuHandler = () => {
+        debugger;
+        this.setState(() => ({
+            mobileMenu: false,
+        }))
+
     }
     
     setSize = () =>  {
@@ -38,16 +56,25 @@ export default class Menu extends Component {
 
     render() {
             
-
+        
+        
         
         if(this.state.width < 800) {
+            //let mobileMenu = this.state.mobileMenu ?  'block' : 'none';
+            let sideMenu;
+            let backDrop;
+            if (this.state.mobileMenu) {
+                sideMenu = <SideMenu />;
+                backDrop = <BackDrop click={this.closemenuHandler} />;
+
+            }
             return (
                 <div className="menu" >
                     <div className="conteiner flex-menu">
                        <Logo/>
-                       <MobileIcon />
-                       <SideMenu />
-                       <BackDrop />
+                       <MobileIcon onClick={this.menuToggleHandler}/>
+                       { sideMenu }
+                       { backDrop }
                     </div>
         
                 </div>
