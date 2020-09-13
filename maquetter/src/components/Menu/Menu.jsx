@@ -21,7 +21,6 @@ export default class Menu extends Component {
     }
 
     closemenuHandler = () => {
-        debugger;
         this.setState(() => ({
             mobileMenu: false,
         }))
@@ -60,20 +59,14 @@ export default class Menu extends Component {
         
         
         if(this.state.width < 800) {
-            //let mobileMenu = this.state.mobileMenu ?  'block' : 'none';
-            let sideMenu;
-            let backDrop;
-            if (this.state.mobileMenu) {
-                sideMenu = <SideMenu />;
-                backDrop = <BackDrop click={this.closemenuHandler} />;
-
-            }
+            let backDrop = this.state.mobileMenu ? <BackDrop click={this.closemenuHandler} /> : null;
+            
             return (
                 <div className="menu" >
                     <div className="conteiner flex-menu">
                        <Logo/>
                        <MobileIcon onClick={this.menuToggleHandler}/>
-                       { sideMenu }
+                       <SideMenu visible={this.state.mobileMenu}/>
                        { backDrop }
                     </div>
         
