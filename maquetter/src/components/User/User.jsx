@@ -2,6 +2,7 @@ import React from 'react';
 import './index.js';
 import './User.scss';
 import { ReactComponent as DefaultPhoto } from './photo-cover.svg';
+import ReactTooltip from 'react-tooltip';
 
 const User = ({ user }) =>  {
          //console.log('Props', this.props);
@@ -19,11 +20,11 @@ const User = ({ user }) =>  {
             
                 <div className="user-card" >
                     <img className="user-photo" src={personPhoto} alt='user' />
-                    <h2> {name} </h2>
-                    <p>{position}</p>
-                    <p>{email}</p>
-                    <p>{phone}</p>
-      
+                    <h2 data-tip={name}> {name} </h2>
+                    <p data-tip={position}>{position}</p>
+                    <p data-tip={email}>{email}</p>
+                    <p data-tip={phone}>{phone}</p>
+                    <ReactTooltip place='bottom' />
                 </div>
               )
 
