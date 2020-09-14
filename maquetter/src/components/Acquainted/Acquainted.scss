@@ -41,6 +41,21 @@
     font-size: 12px;
     font-family: $font;
     color: #ef5b4c;
+
 @include flatButton();
+  }
+  a {
+    font-weight: 600;
+    font-weight: 600;
+    line-height: 60px;
+    color: #ef5b4c;
+
+    cursor: pointer;
+
+@include paragraph();
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }

@@ -4,7 +4,7 @@
 
 .side-menu {
   position: fixed;
-  top: 200px;
+  top: 0;
   z-index: 200;
 
   width: #ffffff;
@@ -22,13 +22,18 @@
 }
 
 .side-menu__item {
-  margin-left: 0;
+  margin-left: 30px;
 
   color: #000000;
 
   cursor: pointer;
 
 @include paragraph();
+
+  &:hover {
+    color: $primaryColor;
+    text-decoration: none;
+  }
 }
 
 .side-menu__nav {

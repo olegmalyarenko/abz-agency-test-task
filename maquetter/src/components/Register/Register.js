@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Register.scss';
 import { Form , Button } from 'react-bootstrap';
+import ScrollableAnchor from 'react-scrollable-anchor';
 
 export default class Register extends Component {
 
@@ -101,6 +102,7 @@ export default class Register extends Component {
      
 
         return(
+          <ScrollableAnchor id={'register'}>
             <div className="container register-block">
                 <h2>Register to get a work</h2>
                 <p>Attention! After successful registration and alert, update the list of users in the block from the top</p>
@@ -225,6 +227,7 @@ export default class Register extends Component {
                   </Button>
                 </Form>
             </div>
+          </ScrollableAnchor>  
         )
     }
 }

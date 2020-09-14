@@ -1,4 +1,5 @@
 @import "../../variables.scss";
+@import "../../mixines.scss";
 
 .menu {
   position: fixed;
@@ -16,14 +17,6 @@
 .navigation {
   display: flex;
 }
-li {
-  padding: 0 30px;
-
-  font-family: $font;
-  &:hover {
-    color: $primaryColor;
-  }
-}
 
 .active {
   //color: #2a5692;
@@ -36,4 +29,17 @@ li {
 
 .none {
   display: none;
+}
+.menu-items {
+  padding: 0 30px;
+
+  color: #212529;
+
+  cursor: pointer;
+
+@include paragraph();
+  &:hover {
+    color: $primaryColor;
+    text-decoration: none;
+  }
 }

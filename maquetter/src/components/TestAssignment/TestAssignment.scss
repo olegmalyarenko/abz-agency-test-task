@@ -34,5 +34,17 @@
 
 @include redButton();
   }
+  a {
+    font-weight: 600;
+    color: #fefefe;
+
+    cursor: pointer;
+
+@include paragraph();
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 

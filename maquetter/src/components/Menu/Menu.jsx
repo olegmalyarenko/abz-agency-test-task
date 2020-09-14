@@ -66,7 +66,7 @@ export default class Menu extends Component {
                     <div className="conteiner flex-menu">
                        <Logo/>
                        <MobileIcon onClick={this.menuToggleHandler}/>
-                       <SideMenu visible={this.state.mobileMenu}/>
+                       <SideMenu visible={this.state.mobileMenu} click={this.menuToggleHandler}/>
                        { backDrop }
                     </div>
         
@@ -80,11 +80,11 @@ export default class Menu extends Component {
             <div className="conteiner flex-menu">
              <Logo/>
              <ul className="navigation">
-                <li className={this.state.active === this.id ? 'active' : null} id="about-me" onClick={this.active}>About me</li>
-                <li className="menu-items" id="relationships" onClick={this.active}>Relationships</li>
-                <li className="menu-items" id="requirements" onClick={this.active}>Requirements</li>
-                <li className="menu-items" id="users" onClick={this.active}>Users</li>
-                <li className="menu-items" id="sign-up" onClick={this.active}>Sign Up</li>
+                <li  id="about-me" ><a href="#register" className="menu-items">About me</a></li>
+                <li  id="relationships" ><a href="#register" className="menu-items">Relationships</a></li>
+                <li  id="requirements" ><a href="#register" className="menu-items">Requirements</a></li>
+                <li  id="users" ><a href="#register" className="menu-items">Users</a></li>
+                <li  id="sign-up" ><a href="#register" className="menu-items" >Sign Up</a></li>
     
               </ul>
             </div>

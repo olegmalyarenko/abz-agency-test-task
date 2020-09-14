@@ -2,6 +2,7 @@ import React from 'react';
 import './SideMenu.scss';
 import Logo from '../Logo';
 
+
 const SideMenu = (props) => {
   const open = "side-menu open";
   const close = "side-menu"
@@ -10,27 +11,27 @@ const SideMenu = (props) => {
       <div className={visibleMenu} >
         <Logo />
         <ul className='side-menu__nav'>
-           <li><a href="/" className='side-menu__item'>About me</a></li>
-           <li><a href="/" className='side-menu__item'>Relationships</a></li>
-           <li><a href="/" className='side-menu__item'>Users</a></li>
-           <li><a href="/" className='side-menu__item'>Sign Up </a></li>
-           <li><a href="/" className='side-menu__item'>Terms and Conditions</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>About me</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Relationships</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Users</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Sign Up </a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Terms and Conditions</a></li>
         </ul>
 
         <ul className='side-menu__nav'>
-           <li><a href="/" className='side-menu__item'>How it works</a></li>
-           <li><a href="/" className='side-menu__item'>Partnership</a></li>
-           <li><a href="/" className='side-menu__item'>Help</a></li>
-           <li><a href="/" className='side-menu__item'>Live testimonial</a></li>
-           <li><a href="/" className='side-menu__item'>Contact us</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>How it works</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Partnership</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Help</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Live testimonial</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Contact us</a></li>
         </ul>
 
         <ul className='side-menu__nav'>
-           <li><a href="/" className='side-menu__item'>Articles</a></li>
-           <li><a href="/" className='side-menu__item'>Our news</a></li>
-           <li><a href="/" className='side-menu__item'>Testimonials</a></li>
-           <li><a href="/" className='side-menu__item'>Licenses</a></li>
-           <li><a href="/" className='side-menu__item'>Privacy Policy</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Articles</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Our news</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Testimonials</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Licenses</a></li>
+           <li><a href="#register" className='side-menu__item' onClick={props.click}>Privacy Policy</a></li>
         </ul>
 
       </div>

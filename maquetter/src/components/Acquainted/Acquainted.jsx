@@ -14,7 +14,7 @@ const Acquainted = () => {
                  <p>We will evaluate how clean your approach to writing CSS and JavaScript code is. You can use any CSS and JavaScript 3rd party libraries without any restriction.</p>
 
                  <p>If 3rd party css/javascript libraries are added to the prodject via bower/npm/yarn you will get bonus points. If you are use any task runner (gulp/webpack) you will get bonus points as well. Slice service directory page PSD mockup into HTML5/CSS3.</p>
-                 <button>Sign up now</button>
+                 <button><a href="#register">Sign up now</a></button>
              </div>
          </div>
      </div>
