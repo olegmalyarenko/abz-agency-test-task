@@ -1,3 +1,3 @@
-import getData from './people-data.js';
+import { getData, getStaff } from './people-data.js';
 
-export default getData;
+export { getData, getStaff };

@@ -5,7 +5,7 @@ import TestAssignment from '../TestAssignment';
 import Acquainted from '../Acquainted';
 import Users from '../Users';
 import Register from '../Register';
-import getData from '../../services';
+import { getData, getStaff } from '../../services';
 import ModalWindow from '../ModalWindow';
 
 
@@ -15,7 +15,8 @@ export default class App extends Component {
     people: [],
     peopleCount: 6,
     button: true,
-    modal: false
+    modal: false,
+    staff: []
 }
 
 
@@ -31,6 +32,20 @@ updateState =  () => {
   });
 
 }
+
+getStuffPositions = () => {
+  getStaff().then((data) => {
+   if (data) {
+     console.log('staff', data);
+      this.setState((prevState) => ({
+        ...prevState,
+        staff: data.positions
+      }));
+    }
+  });
+}
+
+
 componentDidMount() {
   this.updateState();
  
@@ -126,6 +141,7 @@ closeModalHandler = () => {
         <Register
         updatePeopleList={this.updatePeopleList}
         modalToggleHandler={this.modalToggleHandler}
+        staff={this.getStaff}
         modalWindow= {modalWindow}
         />
         
