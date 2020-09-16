@@ -64,7 +64,7 @@ export default class Menu extends Component {
             return (
                 <div className="menu" >
                     <div className="conteiner flex-menu">
-                       <Logo/>
+                       <Logo className="logo"/>
                        <MobileIcon onClick={this.menuToggleHandler}/>
                        <SideMenu visible={this.state.mobileMenu} click={this.menuToggleHandler}/>
                        { backDrop }
@@ -78,7 +78,7 @@ export default class Menu extends Component {
     return (
         <div className="menu">
             <div className="conteiner flex-menu">
-             <Logo/>
+             <Logo className="logo"/>
              <ul className="navigation">
                 <li  id="about-me" ><a href="#register" className="menu-items">About me</a></li>
                 <li  id="relationships" ><a href="#register" className="menu-items">Relationships</a></li>

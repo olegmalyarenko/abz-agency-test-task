@@ -59,3 +59,22 @@
     }
   }
 }
+
+@media (max-width: 800px) {
+  .acquained {
+    h2 {
+      font-size: 40px;
+      line-height: 50px;
+    }
+  }
+  .text-side {
+    h2 {
+      font-size: 24px;
+      line-height: 30px;
+    }
+    p {
+      width: 431px;
+      height: 221px;
+    }
+  }
+}

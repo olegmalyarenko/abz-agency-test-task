@@ -13,12 +13,12 @@
 
   background: white;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-  transform: translateX(-100%);
+  transform: translateX(-115%);
 
   transition: transform 0.3s ease-out;
 }
 .open {
-  transform: translateX(0);
+  transform: translateX(-10%);
 }
 
 .side-menu__item {

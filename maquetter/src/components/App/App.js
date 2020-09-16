@@ -33,7 +33,7 @@ updateState =  () => {
 
 }
 
-getStuffPositions = () => {
+getStaffPositions = () => {
   getStaff().then((data) => {
    if (data) {
      console.log('staff', data);
@@ -141,7 +141,6 @@ closeModalHandler = () => {
         <Register
         updatePeopleList={this.updatePeopleList}
         modalToggleHandler={this.modalToggleHandler}
-        staff={this.getStaff}
         modalWindow= {modalWindow}
         />
         
