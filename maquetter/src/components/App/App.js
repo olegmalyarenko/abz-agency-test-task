@@ -23,6 +23,17 @@ setSize = () =>  {
   this.setState({
       width: window.innerWidth
   });
+  this.mobileUsers();
+  
+}
+
+mobileUsers =() => {
+  if(this.state.width >= 450) {
+    this.setState({
+      peopleCount: 3
+  });
+  console.log ('Mob users', this.state.peopleCount);
+  }
 }
 
 updateState =  () => {
@@ -56,14 +67,17 @@ componentDidMount() {
   this.setSize();
   window.addEventListener('resize', this.setSize);
 }
+
 componentWillUnmount() {
   window.removeEventListener('resize', this.setSize);
 }
 
 componentDidUpdate (prevState){
+  
   if (this.state.peopleCount !== prevState.peopleCount){
     this.updateState();
   }
+  
 }
 
 addUsers = () => {
@@ -142,6 +156,7 @@ closeModalHandler = () => {
         <TestAssignment  width={width}/>
         <Acquainted />
         <Users  
+        width={width}
         people={people} 
         peopleCount={peopleCount} 
         button={button} 
