@@ -30,9 +30,13 @@
 }
 
 .radio-row {
+  z-index: -1;
+
   margin-left: -300px;
 }
 .loader {
+  z-index: -1;
+
   max-width: 468px;
 }
 .submit-button {

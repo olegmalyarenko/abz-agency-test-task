@@ -16,9 +16,14 @@ export default class App extends Component {
     peopleCount: 6,
     button: true,
     modal: false,
-    staff: []
+    staff: [],
+    width: 0
 }
-
+setSize = () =>  {
+  this.setState({
+      width: window.innerWidth
+  });
+}
 
 updateState =  () => {
   getData(this.state.peopleCount).then((data) => {
@@ -48,7 +53,11 @@ getStaffPositions = () => {
 
 componentDidMount() {
   this.updateState();
- 
+  this.setSize();
+  window.addEventListener('resize', this.setSize);
+}
+componentWillUnmount() {
+  window.removeEventListener('resize', this.setSize);
 }
 
 componentDidUpdate (prevState){
@@ -123,14 +132,14 @@ closeModalHandler = () => {
 }
 
   render() {
-    const { people , peopleCount, button, modal } = this.state;
+    const { people , peopleCount, button, modal, width } = this.state;
     //console.log('Users users users', this.state.people);
     const modalWindow = modal ? <ModalWindow click={this.closeModalHandler} /> : null;
   return (
     <div className="App">
            
         <Menu />
-        <TestAssignment />
+        <TestAssignment  width={width}/>
         <Acquainted />
         <Users  
         people={people} 
