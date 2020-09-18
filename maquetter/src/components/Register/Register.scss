@@ -8,6 +8,7 @@
     font-size: 50px;
     font-family: $font;
     text-align: center;
+    text-align: center;
     color: #212529;
   }
   p {
@@ -63,4 +64,22 @@
 
 .loader-text {
   margin-left: -230px;
+}
+@media all and (max-width: 450px) {
+  .register-block {
+    h2 {
+      font-size: 30px;
+    }
+    p {
+      width: 300px;
+    }
+  }
+  .form-control,
+  .loader,
+  .radio-row {
+    width: 330px;
+  }
+  .radio-row {
+    margin-left: 0;
+  }
 }
