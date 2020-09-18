@@ -28,11 +28,19 @@ setSize = () =>  {
 }
 
 mobileUsers =() => {
-  if(this.state.width >= 450) {
+  if (this.state.peopleCount > 6) {
+    return;
+  }
+
+  if(this.state.width <= 450) {
     this.setState({
       peopleCount: 3
   });
   console.log ('Mob users', this.state.peopleCount);
+  } else {
+    this.setState({
+      peopleCount: 6
+  });
   }
 }
 
